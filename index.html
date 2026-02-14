@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      background: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 10;
+      position: relative;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    #no {
+      background: #ccc;
+      position: absolute;
+    }
+    h1 {
+      white-space: pre-wrap;
+    }
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 3s linear infinite;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) scale(1);}
+      50% {transform: translateY(-100px) scale(1.2);}
+      100% {transform: translateY(-200px) scale(1);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Imad, will you be my Valentine? 💖</h2>
+    <button id="yes" onclick="yesClick()">Yes</button>
+    <button id="no" onmouseover="moveNo()">No</button>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.body.innerHTML = "<h1 style='color:white; text-align:center; padding: 20px;'>أنت هو الشخص اللي اختارو قلبي واخر إنسان غنعطيه كل ما عندي المجهود ديالي الوفاء ديالي وكاع أحلامي. هادشي كلو ولا ملكك أنت دابا بغيت نكون ديما فجنبك ونعطيك أحسن ما عندي كل نهار ما بغيت حتى حد آخر غيرك قلبي غيبقى معاك واهتمامي كلو غيبقى ليك، وحبي ليك كيزيد يكبر يوم بعد يوم كنبغيك وعيد حب سعيد 💖</h1>";
+      
+      // إضافة قلوب متطايرة
+      for(let i=0;i<30;i++){
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random()*window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        heart.style.fontSize = (20 + Math.random()*20) + "px";
+        heart.style.color = "red";
+        heart.innerHTML = "❤️";
+        document.body.appendChild(heart);
+      }
+    }
+
+    function moveNo() {
+      const no = document.getElementById("no");
+      no.style.top = Math.random() * window.innerHeight + "px";
+      no.style.left = Math.random() * window.innerWidth + "px";
+    }
+  </script>
+
+</body>
+</html>
